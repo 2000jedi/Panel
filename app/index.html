@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Panel</title>
+  <link href="quill.snow.css" rel="stylesheet">
+  <link href="katex.min.css" rel="stylesheet">
+  <link href="editor.css" rel="stylesheet">
+  <script src="katex.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="main.css"/>
+</head>
+<body onresize='document.getElementById("editor").setAttribute("style", "height: calc(100% - " + (document.getElementById("title").offsetHeight + document.getElementsByClassName("ql-toolbar")[0].offsetHeight) + "px)");'>
+<div id="workspace">
+  <div id="first" class="first">
+    <label for="tags-select">Tag: </label>
+    <select id='tags-select' onchange="db.fetchTag();">
+      <option value="">all</option>
+    </select>
+  </div>
+  <div id="document">
+    <input id="title" name="title" type="text" placeholder="Title" onchange="updateDoc();db.fetchAll();">
+    <input placeholder="tags" id="tag" type="text" name="tag" onchange="db.updateTags();updateDoc();">
+    <div id="editor"></div>
+  </div>
+  <div id="note" class="note" hidden></div>
+</div>
+</body>
+<script src="main.js"></script>
+</html>

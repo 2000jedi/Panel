@@ -1,0 +1,20 @@
+{
+    "name": "Panel",
+    "version": "18.3.28",
+    "main": "electron.js",
+    "author": "moscovin",
+    "dependencies": {
+        "dateformat": "^3.0.3",
+        "nedb": "^1.8.0",
+        "quill": "^1.3.6"
+    },
+    "scripts": {
+        "start": "electron .",
+        "prebuild": "lessc app/main.less app/main.css",
+        "build": "electron-packager . Panel --ignore=.less --ignore=.git --ignore=.iml --ignore=.ipr --ignore=.iws --prune=true --platform=win32 --arch=x64 --version=18.3.28 --overwrite",
+        "package": "asar pack Panel-win32-x64/resources/app Panel-win32-x64/resources/app.asar"
+    },
+    "devDependencies": {
+        "electron": "^1.8.4"
+    }
+}
